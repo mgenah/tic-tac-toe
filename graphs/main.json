@@ -1,0 +1,245 @@
+{
+    "caseSensitive": false,
+    "properties": {
+        "name": "main",
+        "environment": {
+            "type": "noflo-browser",
+            "content": "<center>\n<h1>\n  tic-tac-toe\n</h1>\n</center>\n\n<style>\n  #body {\n    display: block;\n  }\n  .grid {\n    position: absolute;\n    width: 200px;\n    height: 200px;\n    margin: auto;\n    left: 0px;\n    right: 0px;\n    top: 10px;\n    bottom: 0px;\n  }\n  .squareButton {\n    width: 60px;\n    height: 60px;\n    border-radius: 20px;\n    background-color: #DDDDDD;\n    font-size: 40px;\n    color: #3333AA;\n  }\n</style>\n\n<div class=\"grid\" id=\"gridContainer\">\n    <button class=\"squareButton\" id=\"a0\">-</button>\n    <button class=\"squareButton\" id=\"a1\">-</button>\n    <button class=\"squareButton\" id=\"a2\">-</button>\n    <button class=\"squareButton\" id=\"a3\">-</button>\n    <button class=\"squareButton\" id=\"a4\">-</button>\n    <button class=\"squareButton\" id=\"a5\">-</button>\n    <button class=\"squareButton\" id=\"a6\">-</button>\n    <button class=\"squareButton\" id=\"a7\">-</button>\n    <button class=\"squareButton\" id=\"a8\">-</button>\n</div>"
+        },
+        "icon": "cog"
+    },
+    "inports": {},
+    "outports": {},
+    "groups": [
+        {
+            "name": "Write HTML",
+            "nodes": [],
+            "metadata": {
+                "description": ""
+            }
+        },
+        {
+            "name": "Debug",
+            "nodes": [],
+            "metadata": {
+                "description": ""
+            }
+        },
+        {
+            "name": "Write X method1",
+            "nodes": [
+                "core/Kick_q6e8o",
+                "dom/GetElement_vzvgq",
+                "dom/GetElement_zcv65",
+                "dom/WriteHtml_aw4bf",
+                "interaction/ListenMouse_5i6ia"
+            ],
+            "metadata": {
+                "description": ""
+            }
+        },
+        {
+            "name": "Write X method 2",
+            "nodes": [
+                "dom/GetElement_wv0f9",
+                "dom/Listen_knx2z",
+                "dom/WriteHtml_wiu27"
+            ],
+            "metadata": {
+                "description": ""
+            }
+        }
+    ],
+    "processes": {
+        "dom/GetElement_vzvgq": {
+            "component": "dom/GetElement",
+            "metadata": {
+                "label": "GetElement",
+                "x": 756,
+                "y": -108,
+                "width": 72,
+                "height": 72
+            }
+        },
+        "dom/WriteHtml_aw4bf": {
+            "component": "dom/WriteHtml",
+            "metadata": {
+                "label": "WriteHtml",
+                "x": 900,
+                "y": -108,
+                "width": 72,
+                "height": 72
+            }
+        },
+        "dom/GetElement_zcv65": {
+            "component": "dom/GetElement",
+            "metadata": {
+                "label": "GetElement",
+                "x": 324,
+                "y": -108,
+                "width": 72,
+                "height": 72
+            }
+        },
+        "interaction/ListenMouse_5i6ia": {
+            "component": "interaction/ListenMouse",
+            "metadata": {
+                "label": "ListenMouse",
+                "x": 468,
+                "y": -108,
+                "width": 72,
+                "height": 72
+            }
+        },
+        "core/Kick_q6e8o": {
+            "component": "core/Kick",
+            "metadata": {
+                "label": "Kick",
+                "x": 612,
+                "y": -108,
+                "width": 72,
+                "height": 72
+            }
+        },
+        "dom/GetElement_wv0f9": {
+            "component": "dom/GetElement",
+            "metadata": {
+                "label": "GetElement",
+                "x": 324,
+                "y": 72,
+                "width": 72,
+                "height": 72
+            }
+        },
+        "dom/Listen_knx2z": {
+            "component": "dom/Listen",
+            "metadata": {
+                "label": "Listen",
+                "x": 468,
+                "y": 72,
+                "width": 72,
+                "height": 72
+            }
+        },
+        "dom/WriteHtml_wiu27": {
+            "component": "dom/WriteHtml",
+            "metadata": {
+                "label": "WriteHtml",
+                "x": 612,
+                "y": 72,
+                "width": 72,
+                "height": 72
+            }
+        }
+    },
+    "connections": [
+        {
+            "src": {
+                "process": "dom/GetElement_zcv65",
+                "port": "element"
+            },
+            "tgt": {
+                "process": "interaction/ListenMouse_5i6ia",
+                "port": "element"
+            },
+            "metadata": {}
+        },
+        {
+            "src": {
+                "process": "core/Kick_q6e8o",
+                "port": "out"
+            },
+            "tgt": {
+                "process": "dom/GetElement_vzvgq",
+                "port": "selector"
+            },
+            "metadata": {}
+        },
+        {
+            "src": {
+                "process": "interaction/ListenMouse_5i6ia",
+                "port": "click"
+            },
+            "tgt": {
+                "process": "core/Kick_q6e8o",
+                "port": "in"
+            },
+            "metadata": {}
+        },
+        {
+            "src": {
+                "process": "dom/GetElement_vzvgq",
+                "port": "element"
+            },
+            "tgt": {
+                "process": "dom/WriteHtml_aw4bf",
+                "port": "container"
+            },
+            "metadata": {}
+        },
+        {
+            "src": {
+                "process": "dom/GetElement_wv0f9",
+                "port": "element"
+            },
+            "tgt": {
+                "process": "dom/Listen_knx2z",
+                "port": "element"
+            },
+            "metadata": {}
+        },
+        {
+            "src": {
+                "process": "dom/Listen_knx2z",
+                "port": "element"
+            },
+            "tgt": {
+                "process": "dom/WriteHtml_wiu27",
+                "port": "container"
+            },
+            "metadata": {}
+        },
+        {
+            "data": "#a0",
+            "tgt": {
+                "process": "dom/GetElement_zcv65",
+                "port": "selector"
+            }
+        },
+        {
+            "data": "#a0",
+            "tgt": {
+                "process": "core/Kick_q6e8o",
+                "port": "data"
+            }
+        },
+        {
+            "data": "X",
+            "tgt": {
+                "process": "dom/WriteHtml_aw4bf",
+                "port": "html"
+            }
+        },
+        {
+            "data": "#a1",
+            "tgt": {
+                "process": "dom/GetElement_wv0f9",
+                "port": "selector"
+            }
+        },
+        {
+            "data": "click",
+            "tgt": {
+                "process": "dom/Listen_knx2z",
+                "port": "type"
+            }
+        },
+        {
+            "data": "X",
+            "tgt": {
+                "process": "dom/WriteHtml_wiu27",
+                "port": "html"
+            }
+        }
+    ]
+}
