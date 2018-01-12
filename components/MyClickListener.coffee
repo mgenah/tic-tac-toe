@@ -14,7 +14,6 @@ exports.getComponent = ->
     return unless input.hasData 'element'
    
     element = input.getData 'element'
-    console.log element
    
     listener = (event) ->
       output.send

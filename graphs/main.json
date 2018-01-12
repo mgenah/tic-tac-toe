@@ -70,6 +70,17 @@
             "metadata": {
                 "description": ""
             }
+        },
+        {
+            "name": "GetFromDB",
+            "nodes": [
+                "core/Kick_l2wd3",
+                "localstorage/GetItem_4s8y7",
+                "localstorage/SetItem_q86lm"
+            ],
+            "metadata": {
+                "description": ""
+            }
         }
     ],
     "processes": {
@@ -222,6 +233,36 @@
                 "width": 72,
                 "height": 72
             }
+        },
+        "localstorage/SetItem_q86lm": {
+            "component": "localstorage/SetItem",
+            "metadata": {
+                "label": "SetItem",
+                "x": 216,
+                "y": 684,
+                "width": 72,
+                "height": 72
+            }
+        },
+        "localstorage/GetItem_4s8y7": {
+            "component": "localstorage/GetItem",
+            "metadata": {
+                "label": "GetItem",
+                "x": 468,
+                "y": 684,
+                "width": 72,
+                "height": 72
+            }
+        },
+        "core/Kick_l2wd3": {
+            "component": "core/Kick",
+            "metadata": {
+                "label": "Kick",
+                "x": 360,
+                "y": 684,
+                "width": 72,
+                "height": 72
+            }
         }
     },
     "connections": [
@@ -293,8 +334,7 @@
             "tgt": {
                 "process": "tic-tac-toe/MyClickListener_rp7qa",
                 "port": "element"
-            },
-            "metadata": {}
+            }
         },
         {
             "src": {
@@ -304,8 +344,7 @@
             "tgt": {
                 "process": "dom/WriteHtml_uig6b",
                 "port": "container"
-            },
-            "metadata": {}
+            }
         },
         {
             "src": {
@@ -315,8 +354,7 @@
             "tgt": {
                 "process": "tic-tac-toe/MyClickListener_lzydx",
                 "port": "element"
-            },
-            "metadata": {}
+            }
         },
         {
             "src": {
@@ -326,8 +364,7 @@
             "tgt": {
                 "process": "dom/WriteHtml_8yucl",
                 "port": "html"
-            },
-            "metadata": {}
+            }
         },
         {
             "src": {
@@ -337,8 +374,7 @@
             "tgt": {
                 "process": "dom/WriteHtml_8yucl",
                 "port": "container"
-            },
-            "metadata": {}
+            }
         },
         {
             "src": {
@@ -352,6 +388,39 @@
             "metadata": {
                 "route": 0
             }
+        },
+        {
+            "src": {
+                "process": "localstorage/SetItem_q86lm",
+                "port": "item"
+            },
+            "tgt": {
+                "process": "core/Kick_l2wd3",
+                "port": "in"
+            },
+            "metadata": {}
+        },
+        {
+            "src": {
+                "process": "core/Kick_l2wd3",
+                "port": "out"
+            },
+            "tgt": {
+                "process": "localstorage/GetItem_4s8y7",
+                "port": "key"
+            },
+            "metadata": {}
+        },
+        {
+            "src": {
+                "process": "localstorage/GetItem_4s8y7",
+                "port": "item"
+            },
+            "tgt": {
+                "process": "core/Kick_y4q",
+                "port": "data"
+            },
+            "metadata": {}
         },
         {
             "data": "#a0",
@@ -413,13 +482,6 @@
             }
         },
         {
-            "data": "X",
-            "tgt": {
-                "process": "core/Kick_y4q",
-                "port": "data"
-            }
-        },
-        {
             "data": "#a0",
             "tgt": {
                 "process": "dom/GetElement_zcv65",
@@ -438,6 +500,34 @@
             "tgt": {
                 "process": "dom/GetElement_2cgqq",
                 "port": "selector"
+            }
+        },
+        {
+            "data": "x",
+            "tgt": {
+                "process": "localstorage/SetItem_q86lm",
+                "port": "key"
+            }
+        },
+        {
+            "data": "x",
+            "tgt": {
+                "process": "core/Kick_l2wd3",
+                "port": "data"
+            }
+        },
+        {
+            "data": "",
+            "tgt": {
+                "process": "localstorage/GetItem_4s8y7",
+                "port": "key"
+            }
+        },
+        {
+            "data": "1",
+            "tgt": {
+                "process": "localstorage/SetItem_q86lm",
+                "port": "value"
             }
         }
     ]

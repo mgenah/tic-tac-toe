@@ -17,7 +17,6 @@ exports.getComponent = ->
      
     for s in selector  
       f = '#a' + s
-      console.log f
       el = document.querySelectorAll f
       unless el.length
         output.done new Error "No element matching '{#f}'"
