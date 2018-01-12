@@ -48,6 +48,28 @@
             "metadata": {
                 "description": ""
             }
+        },
+        {
+            "name": "Write X method 3",
+            "nodes": [
+                "dom/GetElement_2cgqq",
+                "dom/WriteHtml_uig6b"
+            ],
+            "metadata": {
+                "description": ""
+            }
+        },
+        {
+            "name": "Write X method 4",
+            "nodes": [
+                "core/Kick_y4q",
+                "dom/WriteHtml_8yucl",
+                "tic-tac-toe/MyClickListener_lzydx",
+                "tic-tac-toe/MyGetElements_6r2ne"
+            ],
+            "metadata": {
+                "description": ""
+            }
         }
     ],
     "processes": {
@@ -130,6 +152,76 @@
                 "width": 72,
                 "height": 72
             }
+        },
+        "dom/WriteHtml_uig6b": {
+            "component": "dom/WriteHtml",
+            "metadata": {
+                "label": "WriteHtml",
+                "x": 612,
+                "y": 252,
+                "width": 72,
+                "height": 72
+            }
+        },
+        "dom/GetElement_2cgqq": {
+            "component": "dom/GetElement",
+            "metadata": {
+                "label": "GetElement",
+                "x": 324,
+                "y": 252,
+                "width": 72,
+                "height": 72
+            }
+        },
+        "tic-tac-toe/MyClickListener_rp7qa": {
+            "component": "tic-tac-toe/MyClickListener",
+            "metadata": {
+                "label": "MyClickListener",
+                "x": 468,
+                "y": 252,
+                "width": 72,
+                "height": 72
+            }
+        },
+        "tic-tac-toe/MyGetElements_6r2ne": {
+            "component": "tic-tac-toe/MyGetElements",
+            "metadata": {
+                "label": "MyGetElements",
+                "x": 324,
+                "y": 432,
+                "width": 72,
+                "height": 72
+            }
+        },
+        "tic-tac-toe/MyClickListener_lzydx": {
+            "component": "tic-tac-toe/MyClickListener",
+            "metadata": {
+                "label": "MyClickListener",
+                "x": 468,
+                "y": 432,
+                "width": 72,
+                "height": 72
+            }
+        },
+        "dom/WriteHtml_8yucl": {
+            "component": "dom/WriteHtml",
+            "metadata": {
+                "label": "WriteHtml",
+                "x": 756,
+                "y": 432,
+                "width": 72,
+                "height": 72
+            }
+        },
+        "core/Kick_y4q": {
+            "component": "core/Kick",
+            "metadata": {
+                "label": "Kick",
+                "x": 612,
+                "y": 504,
+                "width": 72,
+                "height": 72
+            }
         }
     },
     "connections": [
@@ -141,8 +233,7 @@
             "tgt": {
                 "process": "interaction/ListenMouse_5i6ia",
                 "port": "element"
-            },
-            "metadata": {}
+            }
         },
         {
             "src": {
@@ -152,8 +243,7 @@
             "tgt": {
                 "process": "dom/GetElement_vzvgq",
                 "port": "selector"
-            },
-            "metadata": {}
+            }
         },
         {
             "src": {
@@ -163,8 +253,7 @@
             "tgt": {
                 "process": "core/Kick_q6e8o",
                 "port": "in"
-            },
-            "metadata": {}
+            }
         },
         {
             "src": {
@@ -174,8 +263,7 @@
             "tgt": {
                 "process": "dom/WriteHtml_aw4bf",
                 "port": "container"
-            },
-            "metadata": {}
+            }
         },
         {
             "src": {
@@ -185,8 +273,7 @@
             "tgt": {
                 "process": "dom/Listen_knx2z",
                 "port": "element"
-            },
-            "metadata": {}
+            }
         },
         {
             "src": {
@@ -196,14 +283,74 @@
             "tgt": {
                 "process": "dom/WriteHtml_wiu27",
                 "port": "container"
+            }
+        },
+        {
+            "src": {
+                "process": "dom/GetElement_2cgqq",
+                "port": "element"
+            },
+            "tgt": {
+                "process": "tic-tac-toe/MyClickListener_rp7qa",
+                "port": "element"
             },
             "metadata": {}
         },
         {
-            "data": "#a0",
+            "src": {
+                "process": "tic-tac-toe/MyClickListener_rp7qa",
+                "port": "element"
+            },
             "tgt": {
-                "process": "dom/GetElement_zcv65",
-                "port": "selector"
+                "process": "dom/WriteHtml_uig6b",
+                "port": "container"
+            },
+            "metadata": {}
+        },
+        {
+            "src": {
+                "process": "tic-tac-toe/MyGetElements_6r2ne",
+                "port": "element"
+            },
+            "tgt": {
+                "process": "tic-tac-toe/MyClickListener_lzydx",
+                "port": "element"
+            },
+            "metadata": {}
+        },
+        {
+            "src": {
+                "process": "core/Kick_y4q",
+                "port": "out"
+            },
+            "tgt": {
+                "process": "dom/WriteHtml_8yucl",
+                "port": "html"
+            },
+            "metadata": {}
+        },
+        {
+            "src": {
+                "process": "tic-tac-toe/MyClickListener_lzydx",
+                "port": "element"
+            },
+            "tgt": {
+                "process": "dom/WriteHtml_8yucl",
+                "port": "container"
+            },
+            "metadata": {}
+        },
+        {
+            "src": {
+                "process": "tic-tac-toe/MyClickListener_lzydx",
+                "port": "element"
+            },
+            "tgt": {
+                "process": "core/Kick_y4q",
+                "port": "in"
+            },
+            "metadata": {
+                "route": 0
             }
         },
         {
@@ -221,13 +368,6 @@
             }
         },
         {
-            "data": "#a1",
-            "tgt": {
-                "process": "dom/GetElement_wv0f9",
-                "port": "selector"
-            }
-        },
-        {
             "data": "click",
             "tgt": {
                 "process": "dom/Listen_knx2z",
@@ -239,6 +379,65 @@
             "tgt": {
                 "process": "dom/WriteHtml_wiu27",
                 "port": "html"
+            }
+        },
+        {
+            "data": "X",
+            "tgt": {
+                "process": "dom/WriteHtml_uig6b",
+                "port": "html"
+            }
+        },
+        {
+            "data": [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8
+            ],
+            "tgt": {
+                "process": "tic-tac-toe/MyGetElements_6r2ne",
+                "port": "selector"
+            }
+        },
+        {
+            "data": "X",
+            "tgt": {
+                "process": "dom/WriteHtml_8yucl",
+                "port": "html"
+            }
+        },
+        {
+            "data": "X",
+            "tgt": {
+                "process": "core/Kick_y4q",
+                "port": "data"
+            }
+        },
+        {
+            "data": "#a0",
+            "tgt": {
+                "process": "dom/GetElement_zcv65",
+                "port": "selector"
+            }
+        },
+        {
+            "data": "#a1",
+            "tgt": {
+                "process": "dom/GetElement_wv0f9",
+                "port": "selector"
+            }
+        },
+        {
+            "data": "#a2",
+            "tgt": {
+                "process": "dom/GetElement_2cgqq",
+                "port": "selector"
             }
         }
     ]
