@@ -1,4 +1,5 @@
 noflo = require 'noflo'
+i=0
 
 exports.getComponent = ->
   c = new noflo.Component
@@ -14,9 +15,10 @@ exports.getComponent = ->
     return unless input.hasData 'element'
    
     element = input.getData 'element'
+    console.log("2",element,window.g)
    
     listener = (event) ->
-      output.send
-      	element: element
+      window.g[i]()
+      i++
 
     element.addEventListener 'click', listener
