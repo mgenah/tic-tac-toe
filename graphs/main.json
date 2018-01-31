@@ -238,7 +238,7 @@
             "component": "localstorage/SetItem",
             "metadata": {
                 "label": "SetItem",
-                "x": 216,
+                "x": 180,
                 "y": 684,
                 "width": 72,
                 "height": 72
@@ -248,7 +248,7 @@
             "component": "localstorage/GetItem",
             "metadata": {
                 "label": "GetItem",
-                "x": 468,
+                "x": 432,
                 "y": 684,
                 "width": 72,
                 "height": 72
@@ -258,7 +258,7 @@
             "component": "core/Kick",
             "metadata": {
                 "label": "Kick",
-                "x": 360,
+                "x": 324,
                 "y": 684,
                 "width": 72,
                 "height": 72
