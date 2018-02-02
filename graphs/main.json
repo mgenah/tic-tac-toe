@@ -81,6 +81,16 @@
             "metadata": {
                 "description": ""
             }
+        },
+        {
+            "name": "bsync",
+            "nodes": [
+                "tic-tac-toe/MyGetElements_pgywj",
+                "tic-tac-toe/bsync_81asw"
+            ],
+            "metadata": {
+                "description": ""
+            }
         }
     ],
     "processes": {
@@ -238,7 +248,7 @@
             "component": "localstorage/SetItem",
             "metadata": {
                 "label": "SetItem",
-                "x": 180,
+                "x": 216,
                 "y": 684,
                 "width": 72,
                 "height": 72
@@ -248,7 +258,7 @@
             "component": "localstorage/GetItem",
             "metadata": {
                 "label": "GetItem",
-                "x": 432,
+                "x": 468,
                 "y": 684,
                 "width": 72,
                 "height": 72
@@ -258,8 +268,68 @@
             "component": "core/Kick",
             "metadata": {
                 "label": "Kick",
-                "x": 324,
+                "x": 360,
                 "y": 684,
+                "width": 72,
+                "height": 72
+            }
+        },
+        "tic-tac-toe/MyGetElements_pgywj": {
+            "component": "tic-tac-toe/MyGetElements",
+            "metadata": {
+                "label": "MyGetElements",
+                "x": -216,
+                "y": 324,
+                "width": 72,
+                "height": 72
+            }
+        },
+        "tic-tac-toe/bsync_81asw": {
+            "component": "tic-tac-toe/bsync",
+            "metadata": {
+                "label": "bsync",
+                "x": -36,
+                "y": 324,
+                "width": 72,
+                "height": 72
+            }
+        },
+        "core/Repeat_h483w": {
+            "component": "core/Repeat",
+            "metadata": {
+                "label": "Repeat",
+                "x": -612,
+                "y": 180,
+                "width": 72,
+                "height": 72
+            }
+        },
+        "tic-tac-toe/BPEngine_zdj6l": {
+            "component": "tic-tac-toe/BPEngine",
+            "metadata": {
+                "label": "BPEngine",
+                "x": -432,
+                "y": 108,
+                "width": 72,
+                "height": 72
+            }
+        },
+        "tic-tac-toe/bsync_q3a3k": {
+            "component": "tic-tac-toe/bsync",
+            "metadata": {
+                "label": "bsync",
+                "x": -144,
+                "y": -36,
+                "width": 72,
+                "height": 72
+            }
+        },
+        "core/Kick_ezj3w": {
+            "component": "core/Kick",
+            "metadata": {
+                "label": "Kick",
+                "x": -468,
+                "y": -36,
                 "width": 72,
                 "height": 72
             }
@@ -397,8 +467,7 @@
             "tgt": {
                 "process": "core/Kick_l2wd3",
                 "port": "in"
-            },
-            "metadata": {}
+            }
         },
         {
             "src": {
@@ -408,8 +477,7 @@
             "tgt": {
                 "process": "localstorage/GetItem_4s8y7",
                 "port": "key"
-            },
-            "metadata": {}
+            }
         },
         {
             "src": {
@@ -419,6 +487,49 @@
             "tgt": {
                 "process": "core/Kick_y4q",
                 "port": "data"
+            }
+        },
+        {
+            "src": {
+                "process": "tic-tac-toe/MyGetElements_pgywj",
+                "port": "element"
+            },
+            "tgt": {
+                "process": "tic-tac-toe/bsync_81asw",
+                "port": "request"
+            },
+            "metadata": {}
+        },
+        {
+            "src": {
+                "process": "core/Repeat_h483w",
+                "port": "out"
+            },
+            "tgt": {
+                "process": "tic-tac-toe/BPEngine_zdj6l",
+                "port": "in"
+            },
+            "metadata": {}
+        },
+        {
+            "src": {
+                "process": "tic-tac-toe/BPEngine_zdj6l",
+                "port": "out"
+            },
+            "tgt": {
+                "process": "core/Kick_ezj3w",
+                "port": "in"
+            },
+            "metadata": {}
+        },
+        {
+            "src": {
+                "process": "core/Kick_ezj3w",
+                "port": "out"
+            },
+            "tgt": {
+                "process": "core/Repeat_h483w",
+                "port": "in"
             },
             "metadata": {}
         },
@@ -528,6 +639,44 @@
             "tgt": {
                 "process": "localstorage/SetItem_q86lm",
                 "port": "value"
+            }
+        },
+        {
+            "data": [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8
+            ],
+            "tgt": {
+                "process": "tic-tac-toe/MyGetElements_pgywj",
+                "port": "selector"
+            }
+        },
+        {
+            "data": "1",
+            "tgt": {
+                "process": "core/Repeat_h483w",
+                "port": "in"
+            }
+        },
+        {
+            "data": "addhot",
+            "tgt": {
+                "process": "tic-tac-toe/bsync_q3a3k",
+                "port": "request"
+            }
+        },
+        {
+            "data": "addcold",
+            "tgt": {
+                "process": "tic-tac-toe/bsync_q3a3k",
+                "port": "block"
             }
         }
     ]
