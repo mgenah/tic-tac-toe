@@ -19,12 +19,10 @@ exports.getComponent = ->
   
   c.process (input, output, context) ->
     callback = (element) ->
-      #x = () ->
-        console.log("jjj")
+        console.log("callback called with element:", element)
         output.send
           element:element
 
-      #return x
     request = input.getData 'request'
     wait = input.getData 'waitfor'
     block = input.getData 'block'

@@ -304,16 +304,6 @@
                 "height": 72
             }
         },
-        "tic-tac-toe/BPEngine_zdj6l": {
-            "component": "tic-tac-toe/BPEngine",
-            "metadata": {
-                "label": "BPEngine",
-                "x": -432,
-                "y": 108,
-                "width": 72,
-                "height": 72
-            }
-        },
         "tic-tac-toe/bsync_q3a3k": {
             "component": "tic-tac-toe/bsync",
             "metadata": {
@@ -328,8 +318,18 @@
             "component": "core/Kick",
             "metadata": {
                 "label": "Kick",
-                "x": -468,
+                "x": -432,
                 "y": -36,
+                "width": 72,
+                "height": 72
+            }
+        },
+        "tic-tac-toe/bpengine_xf2gf": {
+            "component": "tic-tac-toe/bpengine",
+            "metadata": {
+                "label": "bpengine",
+                "x": -504,
+                "y": 180,
                 "width": 72,
                 "height": 72
             }
@@ -497,30 +497,7 @@
             "tgt": {
                 "process": "tic-tac-toe/bsync_81asw",
                 "port": "request"
-            },
-            "metadata": {}
-        },
-        {
-            "src": {
-                "process": "core/Repeat_h483w",
-                "port": "out"
-            },
-            "tgt": {
-                "process": "tic-tac-toe/BPEngine_zdj6l",
-                "port": "in"
-            },
-            "metadata": {}
-        },
-        {
-            "src": {
-                "process": "tic-tac-toe/BPEngine_zdj6l",
-                "port": "out"
-            },
-            "tgt": {
-                "process": "core/Kick_ezj3w",
-                "port": "in"
-            },
-            "metadata": {}
+            }
         },
         {
             "src": {
@@ -529,6 +506,29 @@
             },
             "tgt": {
                 "process": "core/Repeat_h483w",
+                "port": "in"
+            }
+        },
+        {
+            "src": {
+                "process": "core/Repeat_h483w",
+                "port": "out"
+            },
+            "tgt": {
+                "process": "tic-tac-toe/bpengine_xf2gf",
+                "port": "in"
+            },
+            "metadata": {
+                "route": null
+            }
+        },
+        {
+            "src": {
+                "process": "tic-tac-toe/bpengine_xf2gf",
+                "port": "out"
+            },
+            "tgt": {
+                "process": "core/Kick_ezj3w",
                 "port": "in"
             },
             "metadata": {}

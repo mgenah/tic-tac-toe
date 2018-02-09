@@ -3,6 +3,16 @@ noflo = require 'noflo'
 class Bsync
   constructor: (@request,@waitfor,@block,@callback) ->
 
+handleEvent = (bsync,ev) -> 
+	# Handle only statements that have requested or waited for this event 
+  return unless bsync? and (bsync.request? and bsync.request is ev) or (bsync.waitfor? and bsync.waitfor is ev)
+  console.log("bsync", bsync)
+  # First remove from bsync statements data structure
+  index = window.g.indexOf(bsync)
+  window.g.splice(index,1)
+  # Then call its callback
+  bsync.callback(ev)	
+    
 exports.getComponent = ->
   c = new noflo.Component
   c.description = 'BP engine'
@@ -12,26 +22,43 @@ exports.getComponent = ->
   	datatype: 'string'
   c.outPorts.add 'out',
   	datatype: 'object'
-  
+
   c.process (input, output, context) ->
-    num for num in [1..1000]
     data = input.get 'in'
     
-    allEvents = window.g[0]
+    console.log("bpengine:")
+    return unless window.g.length > 0
+    
+    # Get all bsync statements
+    allEvents = []
+    allEvents.push bsync for bsync in window.g
+
+    # Collect all blocked events from the bsync statements
     blocked = []
-	blocked.push bsync.block for bsync in allEvents when bsync.block?
-      
+    blocked.push bsync.block for bsync in allEvents when bsync.block?
+
+    console.log("Blocked events:")
+    console.log(blockedev) for blockedev in blocked
+
+    # Possible events = requested / blocked
     possibleEvents = []
-	possibleEvents.push bsync.request for bsync in allEvents when bsync.request? #
-      and bsync.request not in blocked
+    possibleEvents.push bsync.request for bsync in allEvents when bsync.request? and bsync.request not in blocked
+
+    console.log("Possible events:")
+    console.log(possibleEv) for possibleEv in possibleEvents
+
+    if possibleEvents.length == 0
+      output.sendDone
+    # Choose next event
     
-    # need to handle case where there are no possible events
+    # we might want to move this to a function - this is our Event Selection Strategy
     nextEvent = possibleEvents[0]
-    
-    # need to add the call to the callbacks
-    console.log("d",d)
-    console.log("d",d.request) if d?
-    d.callback("addhot") if d?
+    console.log("Next event chosen:",nextEvent)
+    handleEvent bsync,nextEvent for bsync in allEvents
+	
+    # print all left bsync statements
+    console.log("g:")
+    console.log(possibleEv) for possibleEv in window.g
     output.sendDone
     	out: data
     
