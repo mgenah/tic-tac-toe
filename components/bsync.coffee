@@ -5,6 +5,9 @@ window.bsyncs = []
 class Bsync
   constructor: (@request,@waitfor,@block,@callback) ->
 
+# sleepDuration = 1 second.
+sleepDuration = 1000
+
 exports.getComponent = ->
   c = new noflo.Component
   c.description = 'bsync'
@@ -18,24 +21,58 @@ exports.getComponent = ->
   	datatype: 'string'
   c.outPorts.add 'element',
   	datatype: 'object'  
-  
-  c.process (input, output, context) ->
-
-    return if input.hasData('request')==false and input.hasData('waitfor')==false and input.hasData('block')==false
     
-    request = input.getData 'request'
-    wait = input.getData 'waitfor'
-    block = input.getData 'block'
+  firstInput = true
+  outerRequest = ""
+  outerWait = ""
+  outerBlock = ""
   
-    return if request=="" or wait =="" or block == ""
+  sleep = (input, output, context) ->
+    firstInput = false
+    #console.log("sleep",request,wait,block)
+    setTimeout ->
+      innerProcess(input, output, context)
+    , sleepDuration
+  
+  innerProcess = (input, output, context) ->
+    #console.log("innerProcess! ", outerRequest, outerWait, outerBlock)
     
     callback = (element) ->
         console.log("Callback called with element:", element)
         output.send
           element:element
           
-    bb = new Bsync(request,wait,block,callback)
+    bb = new Bsync(outerRequest,outerWait,outerBlock,callback)
     
     console.log("Added new bsync object ", bb)
     window.bsyncs.push(bb)
     
+    firstInput = true
+    outerRequest = ""
+    outerWait = ""
+    outerBlock = ""
+  
+  c.process (input, output, context) ->
+
+    return if input.hasData('request')==false and input.hasData('waitfor')==false and input.hasData('block')==false
+    
+    innerRequest = input.getData 'request'
+    innerWait = input.getData 'waitfor'
+    innerBlock = input.getData 'block'
+        
+    if innerBlock=="" and innerWait=="" and innerRequest==""
+      return
+    
+    if innerRequest != undefined
+      outerRequest = innerRequest
+
+    if innerWait != undefined
+      outerWait = innerWait
+      
+    if innerBlock != undefined
+      outerBlock = innerBlock
+      
+    if firstInput
+      sleep(input, output, context)
+      
+    return
