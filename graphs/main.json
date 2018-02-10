@@ -84,9 +84,56 @@
         },
         {
             "name": "bsync",
+            "nodes": [],
+            "metadata": {
+                "description": ""
+            }
+        },
+        {
+            "name": "BPEngine",
             "nodes": [
-                "tic-tac-toe/MyGetElements_pgywj",
-                "tic-tac-toe/bsync_81asw"
+                "Start",
+                "FrameTicks",
+                "BPEngine"
+            ],
+            "metadata": {
+                "description": "Executed each frame tick."
+            }
+        },
+        {
+            "name": "AddHot - 5 times",
+            "nodes": [
+                "core/Kick_88rp5",
+                "loopEnd - 5",
+                "tic-tac-toe/MyLooper_ocljw",
+                "tic-tac-toe/bsync_azy2d"
+            ],
+            "metadata": {
+                "description": ""
+            }
+        },
+        {
+            "name": "AddCold - 5 times",
+            "nodes": [
+                "core/Kick_onezo",
+                "core/Repeat_atslg",
+                "tic-tac-toe/MyLooper_uwsyr",
+                "tic-tac-toe/bsync_5fie0"
+            ],
+            "metadata": {
+                "description": ""
+            }
+        },
+        {
+            "name": "Interleave",
+            "nodes": [
+                "addCold",
+                "addHot",
+                "core/Kick_191de",
+                "core/Kick_191jk",
+                "start",
+                "tic-tac-toe/bsync_iii4f",
+                "tic-tac-toe/bsync_zsqni"
             ],
             "metadata": {
                 "description": ""
@@ -274,62 +321,182 @@
                 "height": 72
             }
         },
-        "tic-tac-toe/MyGetElements_pgywj": {
-            "component": "tic-tac-toe/MyGetElements",
+        "BPEngine": {
+            "component": "tic-tac-toe/bpengine",
             "metadata": {
-                "label": "MyGetElements",
-                "x": -216,
-                "y": 324,
+                "label": "BPEngine",
+                "x": -180,
+                "y": 288,
                 "width": 72,
                 "height": 72
             }
         },
-        "tic-tac-toe/bsync_81asw": {
+        "FrameTicks": {
+            "component": "dom/RequestAnimationFrame",
+            "metadata": {
+                "label": "FrameTicks",
+                "x": -324,
+                "y": 288,
+                "width": 72,
+                "height": 72
+            }
+        },
+        "Start": {
+            "component": "core/Repeat",
+            "metadata": {
+                "label": "Start",
+                "x": -468,
+                "y": 288,
+                "width": 72,
+                "height": 72
+            }
+        },
+        "tic-tac-toe/bsync_azy2d": {
             "component": "tic-tac-toe/bsync",
             "metadata": {
                 "label": "bsync",
-                "x": -36,
-                "y": 324,
+                "x": -72,
+                "y": 108,
                 "width": 72,
                 "height": 72
             }
         },
-        "core/Repeat_h483w": {
+        "loopEnd - 5": {
             "component": "core/Repeat",
             "metadata": {
-                "label": "Repeat",
-                "x": -612,
-                "y": 180,
+                "label": "loopEnd - 5",
+                "x": -468,
+                "y": 72,
                 "width": 72,
                 "height": 72
             }
         },
-        "tic-tac-toe/bsync_q3a3k": {
+        "core/Kick_88rp5": {
+            "component": "core/Kick",
+            "metadata": {
+                "label": "Kick",
+                "x": -216,
+                "y": 108,
+                "width": 72,
+                "height": 72
+            }
+        },
+        "tic-tac-toe/MyLooper_ocljw": {
+            "component": "tic-tac-toe/MyLooper",
+            "metadata": {
+                "label": "MyLooper",
+                "x": -324,
+                "y": 108,
+                "width": 72,
+                "height": 72
+            }
+        },
+        "core/Repeat_atslg": {
+            "component": "core/Repeat",
+            "metadata": {
+                "label": "loopEnd - 5",
+                "x": -468,
+                "y": -144,
+                "width": 72,
+                "height": 72
+            }
+        },
+        "tic-tac-toe/MyLooper_uwsyr": {
+            "component": "tic-tac-toe/MyLooper",
+            "metadata": {
+                "label": "MyLooper",
+                "x": -324,
+                "y": -108,
+                "width": 72,
+                "height": 72
+            }
+        },
+        "core/Kick_onezo": {
+            "component": "core/Kick",
+            "metadata": {
+                "label": "Kick",
+                "x": -216,
+                "y": -108,
+                "width": 72,
+                "height": 72
+            }
+        },
+        "tic-tac-toe/bsync_5fie0": {
+            "component": "tic-tac-toe/bsync",
+            "metadata": {
+                "label": "bsync",
+                "x": -72,
+                "y": -108,
+                "width": 72,
+                "height": 72
+            }
+        },
+        "tic-tac-toe/bsync_iii4f": {
             "component": "tic-tac-toe/bsync",
             "metadata": {
                 "label": "bsync",
                 "x": -144,
-                "y": -36,
+                "y": -360,
                 "width": 72,
                 "height": 72
             }
         },
-        "core/Kick_ezj3w": {
+        "addHot": {
             "component": "core/Kick",
             "metadata": {
-                "label": "Kick",
-                "x": -432,
-                "y": -36,
+                "label": "addHot",
+                "x": -288,
+                "y": -432,
                 "width": 72,
                 "height": 72
             }
         },
-        "tic-tac-toe/bpengine_xf2gf": {
-            "component": "tic-tac-toe/bpengine",
+        "addCold": {
+            "component": "core/Kick",
             "metadata": {
-                "label": "bpengine",
-                "x": -504,
-                "y": 180,
+                "label": "addCold",
+                "x": -288,
+                "y": -324,
+                "width": 72,
+                "height": 72
+            }
+        },
+        "start": {
+            "component": "core/Repeat",
+            "metadata": {
+                "label": "start",
+                "x": -468,
+                "y": -396,
+                "width": 72,
+                "height": 72
+            }
+        },
+        "tic-tac-toe/bsync_zsqni": {
+            "component": "tic-tac-toe/bsync",
+            "metadata": {
+                "label": "bsync",
+                "x": 108,
+                "y": -396,
+                "width": 72,
+                "height": 72
+            }
+        },
+        "core/Kick_191de": {
+            "component": "core/Kick",
+            "metadata": {
+                "label": "addHot",
+                "x": -36,
+                "y": -324,
+                "width": 72,
+                "height": 72
+            }
+        },
+        "core/Kick_191jk": {
+            "component": "core/Kick",
+            "metadata": {
+                "label": "addCold",
+                "x": -36,
+                "y": -432,
                 "width": 72,
                 "height": 72
             }
@@ -491,44 +658,169 @@
         },
         {
             "src": {
-                "process": "tic-tac-toe/MyGetElements_pgywj",
-                "port": "element"
-            },
-            "tgt": {
-                "process": "tic-tac-toe/bsync_81asw",
-                "port": "request"
-            }
-        },
-        {
-            "src": {
-                "process": "core/Kick_ezj3w",
+                "process": "FrameTicks",
                 "port": "out"
             },
             "tgt": {
-                "process": "core/Repeat_h483w",
-                "port": "in"
-            }
-        },
-        {
-            "src": {
-                "process": "core/Repeat_h483w",
-                "port": "out"
-            },
-            "tgt": {
-                "process": "tic-tac-toe/bpengine_xf2gf",
+                "process": "BPEngine",
                 "port": "in"
             },
             "metadata": {
-                "route": null
+                "route": 0
             }
         },
         {
             "src": {
-                "process": "tic-tac-toe/bpengine_xf2gf",
+                "process": "Start",
                 "port": "out"
             },
             "tgt": {
-                "process": "core/Kick_ezj3w",
+                "process": "FrameTicks",
+                "port": "start"
+            },
+            "metadata": {}
+        },
+        {
+            "src": {
+                "process": "core/Kick_88rp5",
+                "port": "out"
+            },
+            "tgt": {
+                "process": "tic-tac-toe/bsync_azy2d",
+                "port": "request"
+            },
+            "metadata": {}
+        },
+        {
+            "src": {
+                "process": "loopEnd - 5",
+                "port": "out"
+            },
+            "tgt": {
+                "process": "tic-tac-toe/MyLooper_ocljw",
+                "port": "end"
+            },
+            "metadata": {}
+        },
+        {
+            "src": {
+                "process": "tic-tac-toe/MyLooper_ocljw",
+                "port": "pass"
+            },
+            "tgt": {
+                "process": "core/Kick_88rp5",
+                "port": "in"
+            },
+            "metadata": {}
+        },
+        {
+            "src": {
+                "process": "tic-tac-toe/bsync_azy2d",
+                "port": "element"
+            },
+            "tgt": {
+                "process": "tic-tac-toe/MyLooper_ocljw",
+                "port": "signal"
+            },
+            "metadata": {}
+        },
+        {
+            "src": {
+                "process": "core/Repeat_atslg",
+                "port": "out"
+            },
+            "tgt": {
+                "process": "tic-tac-toe/MyLooper_uwsyr",
+                "port": "end"
+            },
+            "metadata": {}
+        },
+        {
+            "src": {
+                "process": "tic-tac-toe/MyLooper_uwsyr",
+                "port": "pass"
+            },
+            "tgt": {
+                "process": "core/Kick_onezo",
+                "port": "in"
+            },
+            "metadata": {}
+        },
+        {
+            "src": {
+                "process": "core/Kick_onezo",
+                "port": "out"
+            },
+            "tgt": {
+                "process": "tic-tac-toe/bsync_5fie0",
+                "port": "request"
+            },
+            "metadata": {}
+        },
+        {
+            "src": {
+                "process": "tic-tac-toe/bsync_5fie0",
+                "port": "element"
+            },
+            "tgt": {
+                "process": "tic-tac-toe/MyLooper_uwsyr",
+                "port": "signal"
+            },
+            "metadata": {}
+        },
+        {
+            "src": {
+                "process": "start",
+                "port": "out"
+            },
+            "tgt": {
+                "process": "addHot",
+                "port": "in"
+            },
+            "metadata": {}
+        },
+        {
+            "src": {
+                "process": "start",
+                "port": "out"
+            },
+            "tgt": {
+                "process": "addCold",
+                "port": "in"
+            },
+            "metadata": {
+                "route": 0
+            }
+        },
+        {
+            "src": {
+                "process": "core/Kick_191jk",
+                "port": "out"
+            },
+            "tgt": {
+                "process": "tic-tac-toe/bsync_zsqni",
+                "port": "waitfor"
+            },
+            "metadata": {}
+        },
+        {
+            "src": {
+                "process": "core/Kick_191de",
+                "port": "out"
+            },
+            "tgt": {
+                "process": "tic-tac-toe/bsync_zsqni",
+                "port": "block"
+            },
+            "metadata": {}
+        },
+        {
+            "src": {
+                "process": "tic-tac-toe/bsync_zsqni",
+                "port": "element"
+            },
+            "tgt": {
+                "process": "start",
                 "port": "in"
             },
             "metadata": {}
@@ -642,41 +934,73 @@
             }
         },
         {
-            "data": [
-                0,
-                1,
-                2,
-                3,
-                4,
-                5,
-                6,
-                7,
-                8
-            ],
+            "data": "start",
             "tgt": {
-                "process": "tic-tac-toe/MyGetElements_pgywj",
-                "port": "selector"
-            }
-        },
-        {
-            "data": "1",
-            "tgt": {
-                "process": "core/Repeat_h483w",
+                "process": "Start",
                 "port": "in"
             }
         },
         {
-            "data": "addhot",
+            "data": "5",
             "tgt": {
-                "process": "tic-tac-toe/bsync_q3a3k",
-                "port": "request"
+                "process": "loopEnd - 5",
+                "port": "in"
             }
         },
         {
-            "data": "addcold",
+            "data": "addHot",
             "tgt": {
-                "process": "tic-tac-toe/bsync_q3a3k",
-                "port": "block"
+                "process": "core/Kick_88rp5",
+                "port": "data"
+            }
+        },
+        {
+            "data": "5",
+            "tgt": {
+                "process": "core/Repeat_atslg",
+                "port": "in"
+            }
+        },
+        {
+            "data": "addCold",
+            "tgt": {
+                "process": "core/Kick_onezo",
+                "port": "data"
+            }
+        },
+        {
+            "data": "addHot",
+            "tgt": {
+                "process": "addHot",
+                "port": "data"
+            }
+        },
+        {
+            "data": "start",
+            "tgt": {
+                "process": "start",
+                "port": "in"
+            }
+        },
+        {
+            "data": "addCold",
+            "tgt": {
+                "process": "addCold",
+                "port": "data"
+            }
+        },
+        {
+            "data": "addHot",
+            "tgt": {
+                "process": "core/Kick_191de",
+                "port": "data"
+            }
+        },
+        {
+            "data": "addCold",
+            "tgt": {
+                "process": "core/Kick_191jk",
+                "port": "data"
             }
         }
     ]
