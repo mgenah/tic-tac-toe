@@ -8,7 +8,7 @@ class Bsync
 
 handleEvent = (bsync,ev) -> 
 	# Handle only statements that have requested or waited for this event 
-  return unless bsync? and (bsync.request? and bsync.request is ev) or (bsync.waitfor? and bsync.waitfor is ev)
+  return unless bsync? and ((bsync.request? and bsync.request is ev) or (bsync.waitfor? and bsync.waitfor is ev))
   # First remove from bsync statements data structure
   index = window.bsyncs.indexOf(bsync)
   window.bsyncs.splice(index,1)
@@ -56,6 +56,7 @@ exports.getComponent = ->
       output.sendDone
       return
     
+    console.log("possible events",possibleEvents)
     # we might want to move this to a function - this is our Event Selection Strategy
     # Choose random value from possibleEvents.
     rand = Math.floor(Math.random() * possibleEvents.length)
