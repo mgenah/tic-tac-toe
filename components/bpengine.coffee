@@ -26,7 +26,7 @@ exports.getComponent = ->
   	datatype: 'object'
 
   c.process (input, output, context) ->
-    return unless window.bsyncs.length > 0 and input.hasData('in')
+    return unless window.bsyncs.length > 0 and window.bsyncs.length >= window.totalB and input.hasData('in')
     
     console.log("--------")
     console.log("bpengine invocation " + i + ":")
@@ -64,10 +64,7 @@ exports.getComponent = ->
     console.log("Next event chosen:",nextEvent)
     console.log("--------")
     handleEvent bsync,nextEvent for bsync in allEvents
-	
-    # print all left bsync statements
-    #console.log("bsyncs:")
-    #console.log(possibleEv) for possibleEv in window.bsyncs
+ 
     output.sendDone
     
 

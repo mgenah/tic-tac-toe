@@ -101,12 +101,18 @@
             }
         },
         {
-            "name": "AddHot - 5 times",
+            "name": "Interleave",
             "nodes": [
-                "core/Kick_88rp5",
-                "loopEnd - 5",
-                "tic-tac-toe/MyLooper_ocljw",
-                "tic-tac-toe/bsync_azy2d"
+                "addCold",
+                "addHot",
+                "core/Kick_191de",
+                "core/Kick_191jk",
+                "core/Repeat_7yfkz",
+                "tic-tac-toe/MyLooper_3yi74",
+                "tic-tac-toe/RegisterBthread_5udvu",
+                "tic-tac-toe/UnRegisterBthrea_lhk9r",
+                "tic-tac-toe/bsync_iii4f",
+                "tic-tac-toe/bsync_zsqni"
             ],
             "metadata": {
                 "description": ""
@@ -116,8 +122,10 @@
             "name": "AddCold - 5 times",
             "nodes": [
                 "core/Kick_onezo",
-                "core/Repeat_atslg",
+                "core/Repeat_5vbs",
                 "tic-tac-toe/MyLooper_uwsyr",
+                "tic-tac-toe/RegisterBthread_vbvrb",
+                "tic-tac-toe/UnRegisterBthrea_6m138",
                 "tic-tac-toe/bsync_5fie0"
             ],
             "metadata": {
@@ -125,15 +133,14 @@
             }
         },
         {
-            "name": "Interleave",
+            "name": "AddHot - 5 times",
             "nodes": [
-                "addCold",
-                "addHot",
-                "core/Kick_191de",
-                "core/Kick_191jk",
-                "start",
-                "tic-tac-toe/bsync_iii4f",
-                "tic-tac-toe/bsync_zsqni"
+                "core/Kick_88rp5",
+                "core/Repeat_3b0u2",
+                "tic-tac-toe/MyLooper_ocljw",
+                "tic-tac-toe/RegisterBthread_uus3c",
+                "tic-tac-toe/UnRegisterBthrea_r2ktr",
+                "tic-tac-toe/bsync_azy2d"
             ],
             "metadata": {
                 "description": ""
@@ -326,7 +333,7 @@
             "metadata": {
                 "label": "BPEngine",
                 "x": -180,
-                "y": 288,
+                "y": 432,
                 "width": 72,
                 "height": 72
             }
@@ -336,7 +343,7 @@
             "metadata": {
                 "label": "FrameTicks",
                 "x": -324,
-                "y": 288,
+                "y": 432,
                 "width": 72,
                 "height": 72
             }
@@ -346,7 +353,7 @@
             "metadata": {
                 "label": "Start",
                 "x": -468,
-                "y": 288,
+                "y": 432,
                 "width": 72,
                 "height": 72
             }
@@ -361,21 +368,11 @@
                 "height": 72
             }
         },
-        "loopEnd - 5": {
-            "component": "core/Repeat",
-            "metadata": {
-                "label": "loopEnd - 5",
-                "x": -468,
-                "y": 72,
-                "width": 72,
-                "height": 72
-            }
-        },
         "core/Kick_88rp5": {
             "component": "core/Kick",
             "metadata": {
                 "label": "Kick",
-                "x": -216,
+                "x": -180,
                 "y": 108,
                 "width": 72,
                 "height": 72
@@ -391,22 +388,12 @@
                 "height": 72
             }
         },
-        "core/Repeat_atslg": {
-            "component": "core/Repeat",
-            "metadata": {
-                "label": "loopEnd - 5",
-                "x": -468,
-                "y": -144,
-                "width": 72,
-                "height": 72
-            }
-        },
         "tic-tac-toe/MyLooper_uwsyr": {
             "component": "tic-tac-toe/MyLooper",
             "metadata": {
                 "label": "MyLooper",
-                "x": -324,
-                "y": -108,
+                "x": -360,
+                "y": -180,
                 "width": 72,
                 "height": 72
             }
@@ -416,7 +403,7 @@
             "metadata": {
                 "label": "Kick",
                 "x": -216,
-                "y": -108,
+                "y": -180,
                 "width": 72,
                 "height": 72
             }
@@ -426,7 +413,7 @@
             "metadata": {
                 "label": "bsync",
                 "x": -72,
-                "y": -108,
+                "y": -180,
                 "width": 72,
                 "height": 72
             }
@@ -435,8 +422,8 @@
             "component": "tic-tac-toe/bsync",
             "metadata": {
                 "label": "bsync",
-                "x": -144,
-                "y": -360,
+                "x": 0,
+                "y": -432,
                 "width": 72,
                 "height": 72
             }
@@ -445,8 +432,8 @@
             "component": "core/Kick",
             "metadata": {
                 "label": "addHot",
-                "x": -288,
-                "y": -432,
+                "x": -144,
+                "y": -504,
                 "width": 72,
                 "height": 72
             }
@@ -455,17 +442,7 @@
             "component": "core/Kick",
             "metadata": {
                 "label": "addCold",
-                "x": -288,
-                "y": -324,
-                "width": 72,
-                "height": 72
-            }
-        },
-        "start": {
-            "component": "core/Repeat",
-            "metadata": {
-                "label": "start",
-                "x": -468,
+                "x": -144,
                 "y": -396,
                 "width": 72,
                 "height": 72
@@ -475,8 +452,8 @@
             "component": "tic-tac-toe/bsync",
             "metadata": {
                 "label": "bsync",
-                "x": 108,
-                "y": -396,
+                "x": 252,
+                "y": -468,
                 "width": 72,
                 "height": 72
             }
@@ -485,8 +462,8 @@
             "component": "core/Kick",
             "metadata": {
                 "label": "addHot",
-                "x": -36,
-                "y": -324,
+                "x": 108,
+                "y": -396,
                 "width": 72,
                 "height": 72
             }
@@ -495,8 +472,108 @@
             "component": "core/Kick",
             "metadata": {
                 "label": "addCold",
-                "x": -36,
-                "y": -432,
+                "x": 108,
+                "y": -504,
+                "width": 72,
+                "height": 72
+            }
+        },
+        "core/Repeat_3b0u2": {
+            "component": "core/Repeat",
+            "metadata": {
+                "label": "Repeat",
+                "x": -432,
+                "y": 108,
+                "width": 72,
+                "height": 72
+            }
+        },
+        "core/Repeat_5vbs": {
+            "component": "core/Repeat",
+            "metadata": {
+                "label": "Repeat",
+                "x": -468,
+                "y": -180,
+                "width": 72,
+                "height": 72
+            }
+        },
+        "core/Repeat_7yfkz": {
+            "component": "core/Repeat",
+            "metadata": {
+                "label": "Repeat",
+                "x": -540,
+                "y": -468,
+                "width": 72,
+                "height": 72
+            }
+        },
+        "tic-tac-toe/MyLooper_3yi74": {
+            "component": "tic-tac-toe/MyLooper",
+            "metadata": {
+                "label": "MyLooper",
+                "x": -432,
+                "y": -468,
+                "width": 72,
+                "height": 72
+            }
+        },
+        "tic-tac-toe/RegisterBthread_5udvu": {
+            "component": "tic-tac-toe/RegisterBthread",
+            "metadata": {
+                "label": "RegisterBthread",
+                "x": -648,
+                "y": -468,
+                "width": 72,
+                "height": 72
+            }
+        },
+        "tic-tac-toe/RegisterBthread_vbvrb": {
+            "component": "tic-tac-toe/RegisterBthread",
+            "metadata": {
+                "label": "RegisterBthread",
+                "x": -576,
+                "y": -180,
+                "width": 72,
+                "height": 72
+            }
+        },
+        "tic-tac-toe/RegisterBthread_uus3c": {
+            "component": "tic-tac-toe/RegisterBthread",
+            "metadata": {
+                "label": "RegisterBthread",
+                "x": -540,
+                "y": 108,
+                "width": 72,
+                "height": 72
+            }
+        },
+        "tic-tac-toe/UnRegisterBthrea_lhk9r": {
+            "component": "tic-tac-toe/UnRegisterBthrea",
+            "metadata": {
+                "label": "UnRegisterBthrea",
+                "x": -288,
+                "y": -360,
+                "width": 72,
+                "height": 72
+            }
+        },
+        "tic-tac-toe/UnRegisterBthrea_6m138": {
+            "component": "tic-tac-toe/UnRegisterBthrea",
+            "metadata": {
+                "label": "UnRegisterBthrea",
+                "x": -252,
+                "y": -72,
+                "width": 72,
+                "height": 72
+            }
+        },
+        "tic-tac-toe/UnRegisterBthrea_r2ktr": {
+            "component": "tic-tac-toe/UnRegisterBthrea",
+            "metadata": {
+                "label": "UnRegisterBthrea",
+                "x": -216,
+                "y": 216,
                 "width": 72,
                 "height": 72
             }
@@ -677,8 +754,7 @@
             "tgt": {
                 "process": "FrameTicks",
                 "port": "start"
-            },
-            "metadata": {}
+            }
         },
         {
             "src": {
@@ -688,19 +764,7 @@
             "tgt": {
                 "process": "tic-tac-toe/bsync_azy2d",
                 "port": "request"
-            },
-            "metadata": {}
-        },
-        {
-            "src": {
-                "process": "loopEnd - 5",
-                "port": "out"
-            },
-            "tgt": {
-                "process": "tic-tac-toe/MyLooper_ocljw",
-                "port": "end"
-            },
-            "metadata": {}
+            }
         },
         {
             "src": {
@@ -710,8 +774,7 @@
             "tgt": {
                 "process": "core/Kick_88rp5",
                 "port": "in"
-            },
-            "metadata": {}
+            }
         },
         {
             "src": {
@@ -721,19 +784,7 @@
             "tgt": {
                 "process": "tic-tac-toe/MyLooper_ocljw",
                 "port": "signal"
-            },
-            "metadata": {}
-        },
-        {
-            "src": {
-                "process": "core/Repeat_atslg",
-                "port": "out"
-            },
-            "tgt": {
-                "process": "tic-tac-toe/MyLooper_uwsyr",
-                "port": "end"
-            },
-            "metadata": {}
+            }
         },
         {
             "src": {
@@ -743,8 +794,7 @@
             "tgt": {
                 "process": "core/Kick_onezo",
                 "port": "in"
-            },
-            "metadata": {}
+            }
         },
         {
             "src": {
@@ -754,8 +804,7 @@
             "tgt": {
                 "process": "tic-tac-toe/bsync_5fie0",
                 "port": "request"
-            },
-            "metadata": {}
+            }
         },
         {
             "src": {
@@ -765,31 +814,6 @@
             "tgt": {
                 "process": "tic-tac-toe/MyLooper_uwsyr",
                 "port": "signal"
-            },
-            "metadata": {}
-        },
-        {
-            "src": {
-                "process": "start",
-                "port": "out"
-            },
-            "tgt": {
-                "process": "addHot",
-                "port": "in"
-            },
-            "metadata": {}
-        },
-        {
-            "src": {
-                "process": "start",
-                "port": "out"
-            },
-            "tgt": {
-                "process": "addCold",
-                "port": "in"
-            },
-            "metadata": {
-                "route": 0
             }
         },
         {
@@ -800,8 +824,7 @@
             "tgt": {
                 "process": "tic-tac-toe/bsync_zsqni",
                 "port": "waitfor"
-            },
-            "metadata": {}
+            }
         },
         {
             "src": {
@@ -811,6 +834,108 @@
             "tgt": {
                 "process": "tic-tac-toe/bsync_zsqni",
                 "port": "block"
+            }
+        },
+        {
+            "src": {
+                "process": "addHot",
+                "port": "out"
+            },
+            "tgt": {
+                "process": "tic-tac-toe/bsync_iii4f",
+                "port": "waitfor"
+            },
+            "metadata": {}
+        },
+        {
+            "src": {
+                "process": "addCold",
+                "port": "out"
+            },
+            "tgt": {
+                "process": "tic-tac-toe/bsync_iii4f",
+                "port": "block"
+            },
+            "metadata": {}
+        },
+        {
+            "src": {
+                "process": "tic-tac-toe/bsync_iii4f",
+                "port": "element"
+            },
+            "tgt": {
+                "process": "core/Kick_191jk",
+                "port": "in"
+            },
+            "metadata": {}
+        },
+        {
+            "src": {
+                "process": "tic-tac-toe/bsync_iii4f",
+                "port": "element"
+            },
+            "tgt": {
+                "process": "core/Kick_191de",
+                "port": "in"
+            },
+            "metadata": {
+                "route": 0
+            }
+        },
+        {
+            "src": {
+                "process": "core/Repeat_3b0u2",
+                "port": "out"
+            },
+            "tgt": {
+                "process": "tic-tac-toe/MyLooper_ocljw",
+                "port": "end"
+            },
+            "metadata": {}
+        },
+        {
+            "src": {
+                "process": "core/Repeat_5vbs",
+                "port": "out"
+            },
+            "tgt": {
+                "process": "tic-tac-toe/MyLooper_uwsyr",
+                "port": "end"
+            },
+            "metadata": {}
+        },
+        {
+            "src": {
+                "process": "tic-tac-toe/MyLooper_3yi74",
+                "port": "pass"
+            },
+            "tgt": {
+                "process": "addCold",
+                "port": "in"
+            },
+            "metadata": {}
+        },
+        {
+            "src": {
+                "process": "tic-tac-toe/MyLooper_3yi74",
+                "port": "pass"
+            },
+            "tgt": {
+                "process": "addHot",
+                "port": "in"
+            },
+            "metadata": {
+                "route": 0
+            }
+        },
+        {
+            "src": {
+                "process": "core/Repeat_7yfkz",
+                "port": "out"
+            },
+            "tgt": {
+                "process": "tic-tac-toe/MyLooper_3yi74",
+                "port": "end"
             },
             "metadata": {}
         },
@@ -820,7 +945,73 @@
                 "port": "element"
             },
             "tgt": {
-                "process": "start",
+                "process": "tic-tac-toe/MyLooper_3yi74",
+                "port": "signal"
+            },
+            "metadata": {}
+        },
+        {
+            "src": {
+                "process": "tic-tac-toe/RegisterBthread_5udvu",
+                "port": "out"
+            },
+            "tgt": {
+                "process": "core/Repeat_7yfkz",
+                "port": "in"
+            },
+            "metadata": {}
+        },
+        {
+            "src": {
+                "process": "tic-tac-toe/RegisterBthread_vbvrb",
+                "port": "out"
+            },
+            "tgt": {
+                "process": "core/Repeat_5vbs",
+                "port": "in"
+            },
+            "metadata": {}
+        },
+        {
+            "src": {
+                "process": "tic-tac-toe/RegisterBthread_uus3c",
+                "port": "out"
+            },
+            "tgt": {
+                "process": "core/Repeat_3b0u2",
+                "port": "in"
+            },
+            "metadata": {}
+        },
+        {
+            "src": {
+                "process": "tic-tac-toe/MyLooper_3yi74",
+                "port": "stop"
+            },
+            "tgt": {
+                "process": "tic-tac-toe/UnRegisterBthrea_lhk9r",
+                "port": "in"
+            },
+            "metadata": {}
+        },
+        {
+            "src": {
+                "process": "tic-tac-toe/MyLooper_uwsyr",
+                "port": "stop"
+            },
+            "tgt": {
+                "process": "tic-tac-toe/UnRegisterBthrea_6m138",
+                "port": "in"
+            },
+            "metadata": {}
+        },
+        {
+            "src": {
+                "process": "tic-tac-toe/MyLooper_ocljw",
+                "port": "stop"
+            },
+            "tgt": {
+                "process": "tic-tac-toe/UnRegisterBthrea_r2ktr",
                 "port": "in"
             },
             "metadata": {}
@@ -941,24 +1132,10 @@
             }
         },
         {
-            "data": "5",
-            "tgt": {
-                "process": "loopEnd - 5",
-                "port": "in"
-            }
-        },
-        {
             "data": "addHot",
             "tgt": {
                 "process": "core/Kick_88rp5",
                 "port": "data"
-            }
-        },
-        {
-            "data": "5",
-            "tgt": {
-                "process": "core/Repeat_atslg",
-                "port": "in"
             }
         },
         {
@@ -973,13 +1150,6 @@
             "tgt": {
                 "process": "addHot",
                 "port": "data"
-            }
-        },
-        {
-            "data": "start",
-            "tgt": {
-                "process": "start",
-                "port": "in"
             }
         },
         {
@@ -1001,6 +1171,27 @@
             "tgt": {
                 "process": "core/Kick_191jk",
                 "port": "data"
+            }
+        },
+        {
+            "data": "5",
+            "tgt": {
+                "process": "tic-tac-toe/RegisterBthread_5udvu",
+                "port": "in"
+            }
+        },
+        {
+            "data": "5",
+            "tgt": {
+                "process": "tic-tac-toe/RegisterBthread_vbvrb",
+                "port": "in"
+            }
+        },
+        {
+            "data": "5",
+            "tgt": {
+                "process": "tic-tac-toe/RegisterBthread_uus3c",
+                "port": "in"
             }
         }
     ]

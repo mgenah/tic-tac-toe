@@ -6,7 +6,7 @@ class Bsync
   constructor: (@request,@waitfor,@block,@callback) ->
 
 # sleepDuration = 1 second.
-sleepDuration = 1000
+sleepDuration = 100
 
 exports.getComponent = ->
   c = new noflo.Component
