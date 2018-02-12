@@ -577,6 +577,86 @@
                 "width": 72,
                 "height": 72
             }
+        },
+        "tic-tac-toe/bsync_magv": {
+            "component": "tic-tac-toe/bsync",
+            "metadata": {
+                "label": "bsync",
+                "x": -180,
+                "y": -864,
+                "width": 72,
+                "height": 72
+            }
+        },
+        "tic-tac-toe/RegisterBthread_zav6o": {
+            "component": "tic-tac-toe/RegisterBthread",
+            "metadata": {
+                "label": "RegisterBthread",
+                "x": -576,
+                "y": -864,
+                "width": 72,
+                "height": 72
+            }
+        },
+        "core/Kick_ovsbs": {
+            "component": "core/Kick",
+            "metadata": {
+                "label": "Kick",
+                "x": -468,
+                "y": -864,
+                "width": 72,
+                "height": 72
+            }
+        },
+        "tic-tac-toe/startBreakuponScope_jqqk5": {
+            "component": "tic-tac-toe/startBreakuponScope",
+            "metadata": {
+                "label": "startBreakuponScope",
+                "x": -324,
+                "y": -864,
+                "width": 72,
+                "height": 72
+            }
+        },
+        "tic-tac-toe/UnRegisterBthrea_nmz5": {
+            "component": "tic-tac-toe/UnRegisterBthrea",
+            "metadata": {
+                "label": "UnRegisterBthrea",
+                "x": 360,
+                "y": -864,
+                "width": 72,
+                "height": 72
+            }
+        },
+        "tic-tac-toe/closeBreakuponScope_rm6wq": {
+            "component": "tic-tac-toe/closeBreakuponScope",
+            "metadata": {
+                "label": "closeBreakuponScope",
+                "x": 180,
+                "y": -864,
+                "width": 72,
+                "height": 72
+            }
+        },
+        "core/Kick_ruvrg": {
+            "component": "core/Kick",
+            "metadata": {
+                "label": "Kick",
+                "x": -72,
+                "y": -864,
+                "width": 72,
+                "height": 72
+            }
+        },
+        "tic-tac-toe/bsync_52rel": {
+            "component": "tic-tac-toe/bsync",
+            "metadata": {
+                "label": "bsync",
+                "x": 36,
+                "y": -864,
+                "width": 72,
+                "height": 72
+            }
         }
     },
     "connections": [
@@ -1017,6 +1097,85 @@
             "metadata": {}
         },
         {
+            "src": {
+                "process": "tic-tac-toe/RegisterBthread_zav6o",
+                "port": "out"
+            },
+            "tgt": {
+                "process": "core/Kick_ovsbs",
+                "port": "in"
+            },
+            "metadata": {}
+        },
+        {
+            "src": {
+                "process": "tic-tac-toe/closeBreakuponScope_rm6wq",
+                "port": "out"
+            },
+            "tgt": {
+                "process": "tic-tac-toe/UnRegisterBthrea_nmz5",
+                "port": "in"
+            },
+            "metadata": {}
+        },
+        {
+            "src": {
+                "process": "tic-tac-toe/bsync_magv",
+                "port": "element"
+            },
+            "tgt": {
+                "process": "core/Kick_ruvrg",
+                "port": "in"
+            },
+            "metadata": {}
+        },
+        {
+            "src": {
+                "process": "core/Kick_ruvrg",
+                "port": "out"
+            },
+            "tgt": {
+                "process": "tic-tac-toe/bsync_52rel",
+                "port": "request"
+            },
+            "metadata": {}
+        },
+        {
+            "src": {
+                "process": "tic-tac-toe/bsync_52rel",
+                "port": "element"
+            },
+            "tgt": {
+                "process": "tic-tac-toe/closeBreakuponScope_rm6wq",
+                "port": "in"
+            },
+            "metadata": {}
+        },
+        {
+            "src": {
+                "process": "core/Kick_ovsbs",
+                "port": "out"
+            },
+            "tgt": {
+                "process": "tic-tac-toe/startBreakuponScope_jqqk5",
+                "port": "request"
+            },
+            "metadata": {
+                "route": null
+            }
+        },
+        {
+            "src": {
+                "process": "tic-tac-toe/startBreakuponScope_jqqk5",
+                "port": "out"
+            },
+            "tgt": {
+                "process": "tic-tac-toe/bsync_magv",
+                "port": "request"
+            },
+            "metadata": {}
+        },
+        {
             "data": "#a0",
             "tgt": {
                 "process": "core/Kick_q6e8o",
@@ -1192,6 +1351,34 @@
             "tgt": {
                 "process": "tic-tac-toe/RegisterBthread_uus3c",
                 "port": "in"
+            }
+        },
+        {
+            "data": "addHot",
+            "tgt": {
+                "process": "core/Kick_ovsbs",
+                "port": "data"
+            }
+        },
+        {
+            "data": "start",
+            "tgt": {
+                "process": "tic-tac-toe/RegisterBthread_zav6o",
+                "port": "in"
+            }
+        },
+        {
+            "data": "addCold",
+            "tgt": {
+                "process": "tic-tac-toe/startBreakuponScope_jqqk5",
+                "port": "breakuponevent"
+            }
+        },
+        {
+            "data": "addHot",
+            "tgt": {
+                "process": "core/Kick_ruvrg",
+                "port": "data"
             }
         }
     ]

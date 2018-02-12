@@ -5,7 +5,7 @@ window.bsyncs = []
 class Bsync
   constructor: (@request,@waitfor,@block,@callback) ->
 
-# sleepDuration = 1 second.
+# sleepDuration = 100 milliseconds.
 sleepDuration = 100
 
 exports.getComponent = ->
@@ -14,7 +14,7 @@ exports.getComponent = ->
   c.icon = 'share'
 
   c.inPorts.add 'request',
-  	datatype: 'string'
+  	datatype: 'object'
   c.inPorts.add 'waitfor',
   	datatype: 'string'
   c.inPorts.add 'block',
@@ -23,47 +23,53 @@ exports.getComponent = ->
   	datatype: 'object'  
     
   firstInput = true
-  outerRequest = ""
+  outerRequest = null
   outerWait = ""
   outerBlock = ""
   
-  sleep = (input, output, context) ->
+  sleep = (output) ->
     firstInput = false
-    #console.log("sleep",request,wait,block)
+    
     setTimeout ->
-      innerProcess(input, output, context)
+      innerProcess(output)
     , sleepDuration
   
-  innerProcess = (input, output, context) ->
-    #console.log("innerProcess! ", outerRequest, outerWait, outerBlock)
-    
-    callback = (element) ->
-        console.log("Callback called with element:", element)
-        output.send
-          element:element
+  innerProcess = (output) -> 
+  	callback = (element) ->
+      console.log("Callback called with element:", element)
+      output.send
+      	element:element
           
-    bb = new Bsync(outerRequest,outerWait,outerBlock,callback)
+    breakuponcallback = (element) ->
+      console.log("Breakupon callback called with element:", element)
+      output.send
+      	element:element
     
-    console.log("Added new bsync object ", bb)
-    window.bsyncs.push(bb)
+    unless outerRequest is null or outerRequest.scope is null
+      breakupon = new Bsync("",outerRequest.scope,outerBlock,breakuponcallback)
+      console.log("Added new breakupon bsync object ", breakupon)
+      window.bsyncs.push(breakupon)
     
+    if outerRequest != null
+      bsync = new Bsync(outerRequest.data,outerWait,outerBlock,callback)
+      console.log("Added new bsync object ", bsync)
+      window.bsyncs.push(bsync)
+  
     firstInput = true
-    outerRequest = ""
+    outerRequest = null
     outerWait = ""
     outerBlock = ""
-  
-  c.process (input, output, context) ->
-
+  c.process (input, output) ->
     return if input.hasData('request')==false and input.hasData('waitfor')==false and input.hasData('block')==false
     
-    innerRequest = input.getData 'request'
+    innerRequest = input.get 'request'
     innerWait = input.getData 'waitfor'
     innerBlock = input.getData 'block'
         
-    if innerBlock=="" and innerWait=="" and innerRequest==""
+    if innerBlock=="" and innerWait=="" and (innerRequest.data=="")
       return
     
-    if innerRequest != undefined
+    if innerRequest != undefined and innerRequest != null
       outerRequest = innerRequest
 
     if innerWait != undefined
@@ -73,6 +79,6 @@ exports.getComponent = ->
       outerBlock = innerBlock
       
     if firstInput
-      sleep(input, output, context)
+      sleep(output)
       
     return
