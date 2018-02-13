@@ -34,26 +34,34 @@ exports.getComponent = ->
       innerProcess(output)
     , sleepDuration
   
-  innerProcess = (output) -> 
-  	callback = (element) ->
+  innerProcess = (output) ->        
+    breakEvent = ""
+    if outerRequest != null and outerRequest.scope != null
+      console.log("scope: ", outerRequest.scope)
+      breakEvent = outerRequest.scope
+      
+    callback = (element) ->
       console.log("Callback called with element:", element)
+      console.log("breakEvent:", breakEvent)
+      o = element
+      if element is breakEvent
+        console.log("Need to break upon event")
+        o= "skip"
       output.send
-      	element:element
-          
-    breakuponcallback = (element) ->
-      console.log("Breakupon callback called with element:", element)
-      output.send
-      	element:element
+        element:o
     
-    unless outerRequest is null or outerRequest.scope is null
-      breakupon = new Bsync("",outerRequest.scope,outerBlock,breakuponcallback)
+    unless breakEvent is ""
+      breakupon = new Bsync("",breakEvent,outerBlock,callback)
       console.log("Added new breakupon bsync object ", breakupon)
       window.bsyncs.push(breakupon)
     
+    bsyncReq = ""
     if outerRequest != null
-      bsync = new Bsync(outerRequest.data,outerWait,outerBlock,callback)
-      console.log("Added new bsync object ", bsync)
-      window.bsyncs.push(bsync)
+      bsyncReq = outerRequest.data
+    
+    bsync = new Bsync(bsyncReq,outerWait,outerBlock,callback)
+    console.log("Added new bsync object ", bsync)
+    window.bsyncs.push(bsync)
   
     firstInput = true
     outerRequest = null
@@ -77,7 +85,7 @@ exports.getComponent = ->
       
     if innerBlock != undefined
       outerBlock = innerBlock
-      
+    
     if firstInput
       sleep(output)
       

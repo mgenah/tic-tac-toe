@@ -582,7 +582,7 @@
             "component": "tic-tac-toe/bsync",
             "metadata": {
                 "label": "bsync",
-                "x": -180,
+                "x": -252,
                 "y": -864,
                 "width": 72,
                 "height": 72
@@ -592,7 +592,7 @@
             "component": "tic-tac-toe/RegisterBthread",
             "metadata": {
                 "label": "RegisterBthread",
-                "x": -576,
+                "x": -684,
                 "y": -864,
                 "width": 72,
                 "height": 72
@@ -602,7 +602,7 @@
             "component": "core/Kick",
             "metadata": {
                 "label": "Kick",
-                "x": -468,
+                "x": -540,
                 "y": -864,
                 "width": 72,
                 "height": 72
@@ -612,7 +612,7 @@
             "component": "tic-tac-toe/startBreakuponScope",
             "metadata": {
                 "label": "startBreakuponScope",
-                "x": -324,
+                "x": -396,
                 "y": -864,
                 "width": 72,
                 "height": 72
@@ -654,6 +654,36 @@
                 "label": "bsync",
                 "x": 36,
                 "y": -864,
+                "width": 72,
+                "height": 72
+            }
+        },
+        "packets/SetScope_gwkuu": {
+            "component": "packets/SetScope",
+            "metadata": {
+                "label": "SetScope",
+                "x": -72,
+                "y": -972,
+                "width": 72,
+                "height": 72
+            }
+        },
+        "core/Kick_673uy": {
+            "component": "core/Kick",
+            "metadata": {
+                "label": "Kick",
+                "x": -180,
+                "y": -1044,
+                "width": 72,
+                "height": 72
+            }
+        },
+        "core/Repeat_ii85s": {
+            "component": "core/Repeat",
+            "metadata": {
+                "label": "Repeat",
+                "x": -324,
+                "y": -1044,
                 "width": 72,
                 "height": 72
             }
@@ -1120,28 +1150,6 @@
         },
         {
             "src": {
-                "process": "tic-tac-toe/bsync_magv",
-                "port": "element"
-            },
-            "tgt": {
-                "process": "core/Kick_ruvrg",
-                "port": "in"
-            },
-            "metadata": {}
-        },
-        {
-            "src": {
-                "process": "core/Kick_ruvrg",
-                "port": "out"
-            },
-            "tgt": {
-                "process": "tic-tac-toe/bsync_52rel",
-                "port": "request"
-            },
-            "metadata": {}
-        },
-        {
-            "src": {
                 "process": "tic-tac-toe/bsync_52rel",
                 "port": "element"
             },
@@ -1171,6 +1179,52 @@
             },
             "tgt": {
                 "process": "tic-tac-toe/bsync_magv",
+                "port": "request"
+            },
+            "metadata": {}
+        },
+        {
+            "src": {
+                "process": "core/Repeat_ii85s",
+                "port": "out"
+            },
+            "tgt": {
+                "process": "core/Kick_673uy",
+                "port": "in"
+            },
+            "metadata": {}
+        },
+        {
+            "src": {
+                "process": "core/Kick_673uy",
+                "port": "out"
+            },
+            "tgt": {
+                "process": "packets/SetScope_gwkuu",
+                "port": "in"
+            },
+            "metadata": {
+                "route": null
+            }
+        },
+        {
+            "src": {
+                "process": "tic-tac-toe/bsync_magv",
+                "port": "element"
+            },
+            "tgt": {
+                "process": "core/Kick_ruvrg",
+                "port": "in"
+            },
+            "metadata": {}
+        },
+        {
+            "src": {
+                "process": "core/Kick_ruvrg",
+                "port": "out"
+            },
+            "tgt": {
+                "process": "tic-tac-toe/bsync_52rel",
                 "port": "request"
             },
             "metadata": {}
@@ -1379,6 +1433,20 @@
             "tgt": {
                 "process": "core/Kick_ruvrg",
                 "port": "data"
+            }
+        },
+        {
+            "data": "addHot",
+            "tgt": {
+                "process": "core/Kick_673uy",
+                "port": "data"
+            }
+        },
+        {
+            "data": "start",
+            "tgt": {
+                "process": "core/Repeat_ii85s",
+                "port": "in"
             }
         }
     ]

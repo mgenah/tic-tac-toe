@@ -9,17 +9,16 @@ exports.getComponent = ->
   	datatype: 'string'
   c.inPorts.add 'breakuponevent',
   	datatype: 'string'
-    #control: true
   c.outPorts.add 'out',
   	datatype: 'object'
-    #scoped: true
  
   c.process (input, output) ->
     return unless input.hasData 'request', 'breakuponevent'
     [data, scope] = input.getData 'request', 'breakuponevent'
-
+    
+    console.log("totalB",window.totalB)
+    ++window.totalB
     o = new noflo.IP 'data', data,
       	scope: scope
-    console.log("IP:",o)
     output.sendDone
       out: o
