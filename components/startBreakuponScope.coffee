@@ -16,8 +16,6 @@ exports.getComponent = ->
     return unless input.hasData 'request', 'breakuponevent'
     [data, scope] = input.getData 'request', 'breakuponevent'
     
-    console.log("totalB",window.totalB)
-    ++window.totalB
     o = new noflo.IP 'data', data,
       	scope: scope
     output.sendDone

@@ -40,26 +40,29 @@ exports.getComponent = ->
       console.log("scope: ", outerRequest.scope)
       breakEvent = outerRequest.scope
       
+    if breakEvent is "skip"
+      output.send
+      	element:"skip"
+      
     callback = (element) ->
       console.log("Callback called with element:", element)
       console.log("breakEvent:", breakEvent)
-      o = element
+      o = breakEvent
       if element is breakEvent
         console.log("Need to break upon event")
         o= "skip"
+        window.totalB--
       output.send
         element:o
     
-    unless breakEvent is ""
-      breakupon = new Bsync("",breakEvent,outerBlock,callback)
-      console.log("Added new breakupon bsync object ", breakupon)
-      window.bsyncs.push(breakupon)
+    if breakEvent is ""
+      breakEvent = outerWait
     
     bsyncReq = ""
     if outerRequest != null
       bsyncReq = outerRequest.data
     
-    bsync = new Bsync(bsyncReq,outerWait,outerBlock,callback)
+    bsync = new Bsync(bsyncReq,breakEvent,outerBlock,callback)
     console.log("Added new bsync object ", bsync)
     window.bsyncs.push(bsync)
   

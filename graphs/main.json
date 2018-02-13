@@ -638,16 +638,6 @@
                 "height": 72
             }
         },
-        "core/Kick_ruvrg": {
-            "component": "core/Kick",
-            "metadata": {
-                "label": "Kick",
-                "x": -72,
-                "y": -864,
-                "width": 72,
-                "height": 72
-            }
-        },
         "tic-tac-toe/bsync_52rel": {
             "component": "tic-tac-toe/bsync",
             "metadata": {
@@ -662,18 +652,8 @@
             "component": "packets/SetScope",
             "metadata": {
                 "label": "SetScope",
-                "x": -72,
-                "y": -972,
-                "width": 72,
-                "height": 72
-            }
-        },
-        "core/Kick_673uy": {
-            "component": "core/Kick",
-            "metadata": {
-                "label": "Kick",
-                "x": -180,
-                "y": -1044,
+                "x": -108,
+                "y": -864,
                 "width": 72,
                 "height": 72
             }
@@ -682,8 +662,8 @@
             "component": "core/Repeat",
             "metadata": {
                 "label": "Repeat",
-                "x": -324,
-                "y": -1044,
+                "x": -216,
+                "y": -1008,
                 "width": 72,
                 "height": 72
             }
@@ -1185,47 +1165,34 @@
         },
         {
             "src": {
-                "process": "core/Repeat_ii85s",
-                "port": "out"
-            },
-            "tgt": {
-                "process": "core/Kick_673uy",
-                "port": "in"
-            },
-            "metadata": {}
-        },
-        {
-            "src": {
-                "process": "core/Kick_673uy",
-                "port": "out"
-            },
-            "tgt": {
-                "process": "packets/SetScope_gwkuu",
-                "port": "in"
-            },
-            "metadata": {
-                "route": null
-            }
-        },
-        {
-            "src": {
                 "process": "tic-tac-toe/bsync_magv",
                 "port": "element"
             },
             "tgt": {
-                "process": "core/Kick_ruvrg",
-                "port": "in"
+                "process": "packets/SetScope_gwkuu",
+                "port": "scope"
             },
             "metadata": {}
         },
         {
             "src": {
-                "process": "core/Kick_ruvrg",
+                "process": "packets/SetScope_gwkuu",
                 "port": "out"
             },
             "tgt": {
                 "process": "tic-tac-toe/bsync_52rel",
                 "port": "request"
+            },
+            "metadata": {}
+        },
+        {
+            "src": {
+                "process": "core/Repeat_ii85s",
+                "port": "out"
+            },
+            "tgt": {
+                "process": "packets/SetScope_gwkuu",
+                "port": "in"
             },
             "metadata": {}
         },
@@ -1430,20 +1397,6 @@
         },
         {
             "data": "addHot",
-            "tgt": {
-                "process": "core/Kick_ruvrg",
-                "port": "data"
-            }
-        },
-        {
-            "data": "addHot",
-            "tgt": {
-                "process": "core/Kick_673uy",
-                "port": "data"
-            }
-        },
-        {
-            "data": "start",
             "tgt": {
                 "process": "core/Repeat_ii85s",
                 "port": "in"
