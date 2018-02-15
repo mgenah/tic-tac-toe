@@ -2,6 +2,7 @@ noflo = require 'noflo'
 
 window.bsyncs = []
 i = 1
+window.totalBsyncs = 0
 
 class Bsync
   constructor: (@request,@waitfor,@block,@callback) ->
@@ -26,7 +27,7 @@ exports.getComponent = ->
   	datatype: 'object'
 
   c.process (input, output, context) ->
-    return unless window.bsyncs.length > 0 and window.bsyncs.length >= window.totalB and input.hasData('in')
+    return unless window.bsyncs.length > 0 and window.bsyncs.length >= window.totalBsyncs and input.hasData('in')
     
     console.log("--------")
     console.log("bpengine invocation " + i + ":")

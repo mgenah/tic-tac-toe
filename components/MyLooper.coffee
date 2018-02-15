@@ -8,7 +8,7 @@ exports.getComponent = ->
   c.inPorts.add 'end',
   	datatype: 'object'
   c.inPorts.add 'signal',
-  	datatype: 'object'    
+  	datatype: 'object',
     
   c.outPorts.add 'pass',
   	datatype: 'object'  
@@ -20,6 +20,7 @@ exports.getComponent = ->
   currI = 0
     
   c.process (input, output, context) ->
+    
     if firstTime
       return unless input.hasData 'end'
       end = input.getData('end')
@@ -28,7 +29,7 @@ exports.getComponent = ->
     else
       return unless input.hasData 'signal'
 
-    signal = input.getData 'signal'
+    signal = input.get 'signal'
     
     if currI < loopEnd
       currI++

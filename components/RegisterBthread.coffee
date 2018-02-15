@@ -1,5 +1,5 @@
 noflo = require 'noflo'
-  
+
 exports.getComponent = ->
   c = new noflo.Component
   c.description = 'Register bthread'
@@ -12,10 +12,10 @@ exports.getComponent = ->
  
   c.process (input, output, context) ->
     data = input.get 'in'
-    if window.totalB == undefined
-      window.totalB = 1
+    if window.totalBsyncs == undefined
+      window.totalBsyncs = 1
     else
-      ++window.totalB
+      ++window.totalBsyncs
 
     output.sendDone
       out: data

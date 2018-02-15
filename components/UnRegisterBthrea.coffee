@@ -12,9 +12,8 @@ exports.getComponent = ->
  
   c.process (input, output, context) ->
     data = input.get 'in'
-    
-    if window.totalB != undefined
-      --window.totalB
+    if window.totalBsyncs != undefined
+      --window.totalBsyncs
 
     output.sendDone
       out: data
